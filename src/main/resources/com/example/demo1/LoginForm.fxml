@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="929.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.controller.LoginFormController">
+<AnchorPane prefHeight="729.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.controller.LoginFormController">
    <children>
-      <ImageView layoutX="-45.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView layoutX="-35.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../java/com/example/demo1/images/a37db229ab447d976174d5b324ebd83a.jpg" />
          </image>
@@ -62,7 +62,11 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </RadioButton>
-      <Button layoutX="113.0" layoutY="446.0" mnemonicParsing="false" style="-fx-background-color: pink;" text="Loging as:" />
       <Button layoutX="235.0" layoutY="514.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="83.0" style="-fx-background-radius: 20px; -fx-background-color: black;" text="Sign-Up" textAlignment="RIGHT" textFill="#280202f0" wrapText="true" />
+      <Label layoutX="150.0" layoutY="451.0" text="Login as:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
