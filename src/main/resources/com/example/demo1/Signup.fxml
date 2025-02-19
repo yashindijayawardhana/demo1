@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
@@ -14,22 +15,59 @@
    <children>
       <ImageView layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../java/com/example/demo1/images/26b4484642e7dfb11c8946a0e4809b9a.jpg" />
+            <Image url="@../../../../java/com/example/demo1/images/48ff7448e65038cb4d29bd962f7c9986.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="55.0" layoutY="72.0" text="Sign Up" textFill="#322929">
+      <Label layoutX="43.0" layoutY="14.0" text="Sign Up" textFill="#322929">
          <font>
             <Font name="System Bold" size="32.0" />
          </font>
       </Label>
-      <PasswordField layoutX="47.0" layoutY="237.0" prefHeight="26.0" prefWidth="335.0" promptText="password" />
-      <RadioButton layoutX="42.0" layoutY="285.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="128.0" style="-fx-border-radius: 20px;" text="Remember me">
+      <Button layoutX="24.0" layoutY="513.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="Sign In">
          <font>
-            <Font size="13.0" />
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <TextField layoutX="33.0" layoutY="122.0" prefHeight="26.0" prefWidth="534.0" promptText="Full Name:" />
+      <TextField layoutX="33.0" layoutY="241.0" prefHeight="26.0" prefWidth="534.0" promptText="Email:" />
+      <TextField layoutX="27.0" layoutY="282.0" prefHeight="26.0" prefWidth="534.0" promptText="Phone Number:" />
+      <PasswordField layoutX="27.0" layoutY="473.0" prefHeight="26.0" prefWidth="534.0" promptText="Confirm Pasword:" />
+      <DatePicker layoutX="33.0" layoutY="165.0" prefHeight="26.0" prefWidth="119.0" promptText="Date of Birth" />
+      <RadioButton layoutX="122.0" layoutY="79.0" mnemonicParsing="false" text="Student">
+         <font>
+            <Font name="System Bold" size="12.0" />
          </font>
       </RadioButton>
-      <Button layoutX="111.0" layoutY="353.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="367.0" style="-fx-background-radius: 20px; -fx-background-color: black;" text="Sign In" />
-      <Button layoutX="236.0" layoutY="445.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: grey;" text="Forgot Password" />
-      <TextField layoutX="55.0" layoutY="184.0" prefHeight="26.0" prefWidth="326.0" promptText="Username or email" />
+      <RadioButton layoutX="227.0" layoutY="79.0" mnemonicParsing="false" text="Admin">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <TextField layoutX="38.0" layoutY="81.0" prefHeight="26.0" prefWidth="47.0" promptText="Role" />
+      <PasswordField layoutX="27.0" layoutY="317.0" prefHeight="26.0" prefWidth="534.0" promptText="Program of Study:" />
+      <PasswordField layoutX="27.0" layoutY="354.0" prefHeight="26.0" prefWidth="534.0" promptText="Year of Study:" />
+      <PasswordField layoutX="27.0" layoutY="433.0" prefHeight="26.0" prefWidth="534.0" promptText="Password:" />
+      <PasswordField layoutX="27.0" layoutY="396.0" prefHeight="26.0" prefWidth="534.0" promptText="Student ID:" />
+      <Label layoutX="33.0" layoutY="555.0" prefHeight="18.0" prefWidth="441.0" text="Already have an account? [ LOGIN here]" />
+      <Button layoutX="329.0" layoutY="549.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="138.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="LOGIN">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <RadioButton layoutX="160.0" layoutY="199.0" mnemonicParsing="false" text="Male">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </RadioButton>
+      <RadioButton layoutX="243.0" layoutY="199.0" mnemonicParsing="false" text="Female">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </RadioButton>
+      <RadioButton layoutX="329.0" layoutY="199.0" mnemonicParsing="false" text="Other">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </RadioButton>
+      <TextField layoutX="33.0" layoutY="201.0" prefHeight="26.0" prefWidth="105.0" promptText="Gender:" />
    </children>
 </AnchorPane>
