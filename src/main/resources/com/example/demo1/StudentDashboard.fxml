@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="705.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="713.0" fitWidth="798.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../java/com/example/demo1/images/48ff7448e65038cb4d29bd962f7c9986.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="309.0" layoutY="92.0" prefHeight="32.0" prefWidth="120.0" text="Welcome ">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Button layoutX="154.0" layoutY="39.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="Profile">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="330.0" layoutY="39.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="View Courses">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="514.0" layoutY="39.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="Register for Courses">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TextField floatText=" Student ID:" layoutX="24.0" layoutY="130.0" />
+      <TextField floatText="Year:" layoutX="24.0" layoutY="172.0" />
+      <TextField floatText="GPA:" layoutX="24.0" layoutY="216.0" />
+      <TextField floatText=" Program:" layoutX="218.0" layoutY="136.0" prefHeight="36.0" prefWidth="473.0" />
+      <TextField floatText="Completed Credits:" layoutX="218.0" layoutY="180.0" prefHeight="36.0" prefWidth="473.0" />
+      <Label layoutX="26.0" layoutY="269.0" prefHeight="18.0" prefWidth="204.0" text="Current Semester Courses    ">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="114.0" text="[Student Name]!  (ID: [Student ID]) ">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+      <TableView layoutX="8.0" layoutY="300.0" prefHeight="302.0" prefWidth="698.0">
+        <columns>
+          <TableColumn prefWidth="125.0" text="Course ID " />
+          <TableColumn prefWidth="141.0" text="Course Title    " />
+            <TableColumn prefWidth="67.0" text=" Credits" />
+            <TableColumn prefWidth="105.0" text="Course Title    " />
+            <TableColumn prefWidth="232.0" text="Details" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="96.0" fitWidth="101.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../Desktop/8e2704d5c0038bae80b51ebf747e7bad.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
