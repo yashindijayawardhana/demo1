@@ -2,65 +2,73 @@ package com.example.demo1.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import java.io.IOException;
 
 public class LoginFormController {
 
     @FXML
-    private TextField usernameField;  // For username input
+    private TextField txtUsername;
 
     @FXML
-    private PasswordField passwordField;  // For password input
+    private PasswordField txtPassword;
 
     @FXML
-    private Button loginButton;  // Button to trigger login
+    private RadioButton rbStudent;
 
     @FXML
-    private void handleLogin(ActionEvent event) {
-        String username = usernameField.getText();
-        String password = passwordField.getText();
+    private RadioButton rbAdmin;
 
-        // Simple authentication logic
-        if (username.equals("admin") && password.equals("admin123")) {
-            loadDashboard("AdminDashboard.fxml", "Admin Dashboard");
-        } else if (username.equals("student") && password.equals("student123")) {
-            loadDashboard("StudentDashboard.fxml", "Student Dashboard");
-        } else if (username.equals("faculty") && password.equals("faculty123")) {
-            loadDashboard("FacultyDashboard.fxml", "Faculty Dashboard");
+    @FXML
+    private RadioButton rbFaculty;
+
+    @FXML
+    void onLoginButtonClick(ActionEvent event) {
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+        String role = "";
+
+        if (rbStudent.isSelected()) {
+            role = "Student";
+        } else if (rbAdmin.isSelected()) {
+            role = "Admin";
+        } else if (rbFaculty.isSelected()) {
+            role = "Faculty";
         } else {
-            showErrorMessage("Invalid Credentials", "Username or password is incorrect.");
+            showAlert("Error", "Please select a role", Alert.AlertType.ERROR);
+            return;
+        }
+
+        if (username.isEmpty() || password.isEmpty()) {
+            showAlert("Error", "Username or Password cannot be empty", Alert.AlertType.ERROR);
+            return;
+        }
+
+        // Dummy login validation (Replace with database verification)
+        if (isValidLogin(username, password, role)) {
+            showAlert("Success", "Login Successful as " + role, Alert.AlertType.INFORMATION);
+            // Navigate to the dashboard or next scene
+        } else {
+            showAlert("Error", "Invalid Username or Password", Alert.AlertType.ERROR);
         }
     }
 
-    // Function to open dashboard
-    private void loadDashboard(String fxmlFile, String title) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Stage stage = new Stage();
-            stage.setTitle(title);
-            stage.setScene(new Scene(fxmlLoader.load()));
-            stage.show();
-
-            // Close login window after successful login
-            Stage loginStage = (Stage) loginButton.getScene().getWindow();
-            loginStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            showErrorMessage("Error", "Unable to load the dashboard.");
+    private boolean isValidLogin(String username, String password, String role) {
+        // Replace this with actual database verification
+        if (role.equals("Admin") && username.equals("admin") && password.equals("admin123")) {
+            return true;
+        } else if (role.equals("Student") && username.equals("student") && password.equals("stu123")) {
+            return true;
+        } else if (role.equals("Faculty") && username.equals("faculty") && password.equals("fac123")) {
+            return true;
         }
+        return false;
     }
 
-    // Function to show error messages
-    private void showErrorMessage(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+    private void showAlert(String title, String message, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);

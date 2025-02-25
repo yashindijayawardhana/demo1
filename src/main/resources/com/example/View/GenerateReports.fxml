@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="693.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.controller.GenerateReportsController">
+   <children>
+      <ImageView fitHeight="791.0" fitWidth="736.0" layoutX="-22.0" layoutY="-40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../java/com/example/demo1/images/38377d9a25ed965f944673bbfa431bb5.jpg" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="cmbReportType" layoutX="173.0" layoutY="214.0" prefHeight="25.0" prefWidth="329.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Student Report" />
+               <String fx:value="Course Report" />
+               <String fx:value="Enrollment Report" />
+               <String fx:value="Academic Performance Report" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <ImageView fitHeight="96.0" fitWidth="101.0" layoutX="14.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../Desktop/8e2704d5c0038bae80b51ebf747e7bad.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="129.0" layoutY="22.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="Manage Courses" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="305.0" layoutY="22.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="Manage Student" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="478.0" layoutY="22.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="View Enrollment" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="129.0" layoutY="76.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="Academic Records" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="346.0" layoutY="76.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="204.0" style="-fx-background-radius: 20px; -fx-background-color: red;" text="Logout" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="238.0" layoutY="126.0" prefHeight="32.0" prefWidth="187.0" text="Generate Reports">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="218.0" prefHeight="17.0" prefWidth="114.0" text="Select Report Type:">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="173.0" layoutY="271.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: white;" text="Generate Report" />
+      <Label layoutX="28.0" layoutY="340.0" prefHeight="17.0" prefWidth="114.0" text="Report Preview:">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="45.0" layoutY="368.0" prefHeight="166.0" prefWidth="602.0" />
+      <Button layoutX="394.0" layoutY="616.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="108.0" style="-fx-background-color: white; -fx-background-radius: 20px;" text="Export as Excel">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="579.0" layoutY="616.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: white; -fx-background-color: red;" text="Back" textFill="#f8f0f0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="263.0" layoutY="616.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="108.0" style="-fx-background-color: white; -fx-background-radius: 20px;" text="Export as Excel">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+
+</AnchorPane>

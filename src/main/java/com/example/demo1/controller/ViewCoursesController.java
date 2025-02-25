@@ -1,4 +1,4 @@
 package com.example.demo1.controller;
 
-public class StudentDashboard {
+public class ViewCoursesController {
 }
