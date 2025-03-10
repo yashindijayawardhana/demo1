@@ -1,117 +1,115 @@
 package com.example.demo1.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class SignupController {
 
     @FXML
-    private TextField txtFullName;
+    private TextField txtFullName, txtEmail, txtPhoneNumber, txtProgram, txtYear, txtStudentID;
+
+    @FXML
+    private PasswordField txtPassword, txtConfirmPassword;
 
     @FXML
     private DatePicker dpDateOfBirth;
 
     @FXML
-    private TextField txtEmail;
+    private RadioButton rbStudent, rbAdmin, rbMale, rbFemale, rbOther;
 
     @FXML
-    private TextField txtPhoneNumber;
+    private ToggleGroup roleGroup, genderGroup;
 
     @FXML
-    private PasswordField txtPassword;
+    private Button btnSignIn, btnLogin;
 
     @FXML
-    private PasswordField txtConfirmPassword;
+    void handleSignUp(ActionEvent event) {
+        if (validateInputs()) {
+            System.out.println("Registration successful!");
+            navigateToLogin(event);
+        }
+    }
 
     @FXML
-    private TextField txtProgramOfStudy;
+    void handleLogin(ActionEvent event) {
+        navigateToLogin(event);
+    }
 
-    @FXML
-    private TextField txtYearOfStudy;
-
-    @FXML
-    private TextField txtStudentID;
-
-    @FXML
-    private RadioButton rbMale;
-
-    @FXML
-    private RadioButton rbFemale;
-
-    @FXML
-    private RadioButton rbOther;
-
-    @FXML
-    private RadioButton rbStudent;
-
-    @FXML
-    private RadioButton rbAdmin;
-
-    @FXML
-    private Button btnSignUp;
-
-    @FXML
-    private ToggleGroup genderGroup;
-
-    @FXML
-    private ToggleGroup roleGroup;
-
-    @FXML
-    void onSignUpButtonClick(ActionEvent event) {
-        String fullName = txtFullName.getText();
-        String email = txtEmail.getText();
-        String phone = txtPhoneNumber.getText();
+    private boolean validateInputs() {
+        String fullName = txtFullName.getText().trim();
+        String email = txtEmail.getText().trim();
+        String phone = txtPhoneNumber.getText().trim();
+        String program = txtProgram.getText().trim();
+        String year = txtYear.getText().trim();
+        String studentID = txtStudentID.getText().trim();
         String password = txtPassword.getText();
         String confirmPassword = txtConfirmPassword.getText();
-        String program = txtProgramOfStudy.getText();
-        String year = txtYearOfStudy.getText();
-        String studentID = txtStudentID.getText();
-        String dob = (dpDateOfBirth.getValue() != null) ? dpDateOfBirth.getValue().toString() : "";
 
-        String gender = "";
-        if (rbMale.isSelected()) gender = "Male";
-        else if (rbFemale.isSelected()) gender = "Female";
-        else if (rbOther.isSelected()) gender = "Other";
+        if (fullName.isEmpty() || email.isEmpty() || phone.isEmpty() || program.isEmpty() ||
+                year.isEmpty() || studentID.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, "Error", "All fields are required!");
+            return false;
+        }
 
-        String role = "";
-        if (rbStudent.isSelected()) role = "Student";
-        else if (rbAdmin.isSelected()) role = "Admin";
+        if (!Pattern.matches("^[A-Za-z]+$", fullName)) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Invalid full name!");
+            return false;
+        }
 
-        // Validation
-        if (fullName.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() ||
-                confirmPassword.isEmpty() || program.isEmpty() || year.isEmpty() || studentID.isEmpty() || dob.isEmpty()) {
-            showAlert("Error", "All fields are required!", AlertType.ERROR);
-            return;
+        if (!Pattern.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$", email)) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Invalid email format!");
+            return false;
+        }
+
+        if (!Pattern.matches("\\d{10}$", phone)) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Phone number must be 10 digits!");
+            return false;
         }
 
         if (!password.equals(confirmPassword)) {
-            showAlert("Error", "Passwords do not match!", AlertType.ERROR);
-            return;
+            showAlert(Alert.AlertType.ERROR, "Error", "Passwords do not match!");
+            return false;
         }
 
-        if (role.isEmpty()) {
-            showAlert("Error", "Please select a role!", AlertType.ERROR);
-            return;
+        if (roleGroup.getSelectedToggle() == null) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Please select a role!");
+            return false;
         }
 
-        if (gender.isEmpty()) {
-            showAlert("Error", "Please select your gender!", AlertType.ERROR);
-            return;
+        if (genderGroup.getSelectedToggle() == null) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Please select a gender!");
+            return false;
         }
 
-        // If all validations pass
-        showAlert("Success", "Account created successfully!", AlertType.INFORMATION);
-
-        // Here you can add code to insert user details into the database
+        return true;
     }
 
-    private void showAlert(String title, String message, AlertType alertType) {
-        Alert alert = new Alert(alertType);
+    private void showAlert(Alert.AlertType type, String title, String message) {
+        Alert alert = new Alert(type);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    private void navigateToLogin(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/demo1/view/LoginForm.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
