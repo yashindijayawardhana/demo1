@@ -2,13 +2,14 @@ package com.example.demo1.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 public class LoginFormController {
-
     @FXML
     private TextField txtUsername;
 
@@ -16,62 +17,76 @@ public class LoginFormController {
     private PasswordField txtPassword;
 
     @FXML
-    private RadioButton rbStudent;
+    private RadioButton rbStudent, rbAdmin, rbFaculty;
 
     @FXML
-    private RadioButton rbAdmin;
+    private Button btnLogin, btnSignUp;
 
     @FXML
-    private RadioButton rbFaculty;
+    private ToggleGroup userRole;
 
     @FXML
-    void onLoginButtonClick(ActionEvent event) {
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
-        String role = "";
+    private Label lblMessage;
 
-        if (rbStudent.isSelected()) {
-            role = "Student";
-        } else if (rbAdmin.isSelected()) {
-            role = "Admin";
-        } else if (rbFaculty.isSelected()) {
-            role = "Faculty";
-        } else {
-            showAlert("Error", "Please select a role", Alert.AlertType.ERROR);
-            return;
-        }
+    @FXML
+    private void initialize() {
+        // Initialize toggle group for radio buttons
+        userRole = new ToggleGroup();
+        rbStudent.setToggleGroup(userRole);
+        rbAdmin.setToggleGroup(userRole);
+        rbFaculty.setToggleGroup(userRole);
+    }
+
+    @FXML
+    private void handleLogin(ActionEvent event) {
+        String username = txtUsername.getText().trim();
+        String password = txtPassword.getText().trim();
+        Toggle selectedRole = userRole.getSelectedToggle();
 
         if (username.isEmpty() || password.isEmpty()) {
-            showAlert("Error", "Username or Password cannot be empty", Alert.AlertType.ERROR);
+            lblMessage.setText("Username and Password cannot be empty!");
+            lblMessage.setStyle("-fx-text-fill: red;");
             return;
         }
 
-        // Dummy login validation (Replace with database verification)
-        if (isValidLogin(username, password, role)) {
-            showAlert("Success", "Login Successful as " + role, Alert.AlertType.INFORMATION);
-            // Navigate to the dashboard or next scene
+        if (selectedRole == null) {
+            lblMessage.setText("Please select a role!");
+            lblMessage.setStyle("-fx-text-fill: red;");
+            return;
+        }
+
+        String role = ((RadioButton) selectedRole).getText();
+
+        // Simulate authentication (Replace with database validation)
+        if (username.equals("admin") && password.equals("1234") && role.equals("Admin")) {
+            lblMessage.setText("Login Successful as Admin");
+            lblMessage.setStyle("-fx-text-fill: green;");
+            openDashboard("AdminDashboard.fxml");
+        } else if (username.equals("student") && password.equals("1234") && role.equals("Student")) {
+            lblMessage.setText("Login Successful as Student");
+            lblMessage.setStyle("-fx-text-fill: green;");
+            openDashboard("StudentDashboard.fxml");
         } else {
-            showAlert("Error", "Invalid Username or Password", Alert.AlertType.ERROR);
+            lblMessage.setText("Invalid Credentials!");
+            lblMessage.setStyle("-fx-text-fill: red;");
         }
     }
 
-    private boolean isValidLogin(String username, String password, String role) {
-        // Replace this with actual database verification
-        if (role.equals("Admin") && username.equals("admin") && password.equals("admin123")) {
-            return true;
-        } else if (role.equals("Student") && username.equals("student") && password.equals("stu123")) {
-            return true;
-        } else if (role.equals("Faculty") && username.equals("faculty") && password.equals("fac123")) {
-            return true;
-        }
-        return false;
+    @FXML
+    private void handleSignUp(ActionEvent event) {
+        openDashboard("SignUpForm.fxml");
     }
 
-    private void showAlert(String title, String message, Alert.AlertType alertType) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
+    private void openDashboard(String fxmlFile) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/view/" + fxmlFile));
+            AnchorPane root = loader.load();
+            Stage stage = (Stage) btnLogin.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+            lblMessage.setText("Error loading page");
+            lblMessage.setStyle("-fx-text-fill: red;");
+        }
     }
 }
