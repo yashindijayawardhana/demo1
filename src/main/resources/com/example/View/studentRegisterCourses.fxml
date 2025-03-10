@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView layoutX="-15.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../java/com/example/demo1/images/55736bf84b31d7b77ea1e84612efe2eb.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="230.0" layoutY="91.0" prefHeight="32.0" prefWidth="223.0" text="Student Registration">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Button layoutX="55.0" layoutY="546.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="185.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="Back to Dashboard" textFill="#ebdbdb" />
+      <ImageView fitHeight="96.0" fitWidth="101.0" layoutX="34.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../Desktop/8e2704d5c0038bae80b51ebf747e7bad.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="147.0" layoutY="39.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="Profile" textFill="#ffeded">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="332.0" layoutY="39.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="View Courses" textFill="#ffeded">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="522.0" layoutY="39.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="Register for Courses" textFill="#ffeded">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TextField layoutX="128.0" layoutY="161.0" prefHeight="25.0" prefWidth="501.0" />
+      <Label layoutX="24.0" layoutY="165.0" prefHeight="17.0" prefWidth="70.0" text="Student ID:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="208.0" prefHeight="17.0" prefWidth="96.0" text="Student Name:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="128.0" layoutY="204.0" prefHeight="25.0" prefWidth="501.0" />
+      <Label layoutX="24.0" layoutY="254.0" prefHeight="17.0" prefWidth="96.0" text="Date of Birth:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="298.0" prefHeight="17.0" prefWidth="96.0" text="Program:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="130.0" layoutY="294.0" prefHeight="25.0" prefWidth="501.0" />
+      <Label layoutX="24.0" layoutY="341.0" prefHeight="17.0" prefWidth="96.0" text="Year:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <DatePicker layoutX="127.0" layoutY="250.0" prefHeight="25.0" prefWidth="185.0" />
+      <ComboBox layoutX="130.0" layoutY="337.0" prefHeight="25.0" prefWidth="185.0" />
+      <Label layoutX="24.0" layoutY="392.0" prefHeight="17.0" prefWidth="96.0" text="Contact No:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="128.0" layoutY="388.0" prefHeight="25.0" prefWidth="185.0" />
+      <Button layoutX="286.0" layoutY="546.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="185.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="Register" textFill="#ebdbdb" />
+      <Label layoutX="24.0" layoutY="461.0" prefHeight="19.0" prefWidth="80.0" text="Message">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <TextArea layoutX="94.0" layoutY="455.0" prefHeight="47.0" prefWidth="611.0" style="-fx-border-radius: 15px;" />
+   </children>
+</AnchorPane>

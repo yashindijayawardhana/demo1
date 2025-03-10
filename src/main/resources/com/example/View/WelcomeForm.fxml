@@ -2,34 +2,27 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="698.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.controller.WelcomeController">
+<AnchorPane prefHeight="698.0" prefWidth="668.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.controller.WelcomeController">
     <children>
-        <ImageView layoutX="-52.0" layoutY="-38.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../../../java/com/example/demo1/images/a37db229ab447d976174d5b324ebd83a.jpg" />
-            </image>
-        </ImageView>
         <Label layoutX="144.0" layoutY="71.0" text="Welcome to Student Management System">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Button layoutX="216.0" layoutY="195.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="Login" textFill="#ffffff">
+        <Button fx:id="btnLogin" layoutX="216.0" layoutY="195.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="40.0" prefWidth="200.0" style="-fx-background-radius: 20px; -fx-background-color: blue;" text="Login" textFill="#ffffff">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-        <Button layoutX="216.0" layoutY="273.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Register" textFill="#ffffff">
+        <Button fx:id="btnRegister" layoutX="216.0" layoutY="273.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="40.0" prefWidth="200.0" style="-fx-background-radius: 20px; -fx-background-color: green;" text="Sign Up" textFill="#ffffff">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-        <Button layoutX="216.0" layoutY="349.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-radius: 20px; -fx-background-color: red;" text="Exit" textFill="#ffffff">
+        <Button fx:id="btnExit" layoutX="216.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="40.0" prefWidth="200.0" style="-fx-background-radius: 20px; -fx-background-color: red;" text="Exit" textFill="#ffffff">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
