@@ -44,24 +44,55 @@ public class StudentDashboardController {
             return;
         }
 
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/crs", "root", "1234yashi");
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO students (student_id, name, dob, program, year, contact) VALUES (?, ?, ?, ?, ?, ?)");) {
+        Connection conn = null;
+        PreparedStatement stmtStudents = null;
+        PreparedStatement stmtDashboard = null;
 
-            stmt.setString(1, studentId);
-            stmt.setString(2, studentName);
-            stmt.setString(3, dob);
-            stmt.setString(4, program);
-            stmt.setString(5, year);
-            stmt.setString(6, contact);
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/crs", "root", "1234yashi");
+            conn.setAutoCommit(false); // Start transaction
 
-            int rowsAffected = stmt.executeUpdate();
-            if (rowsAffected > 0) {
-                txtMessage.setText("Registration successful!");
-            } else {
-                txtMessage.setText("Registration failed.");
-            }
+            // Insert into students table
+            String sqlStudents = "INSERT INTO students (student_id, name, dob, program, year, contact) VALUES (?, ?, ?, ?, ?, ?)";
+            stmtStudents = conn.prepareStatement(sqlStudents);
+            stmtStudents.setString(1, studentId);
+            stmtStudents.setString(2, studentName);
+            stmtStudents.setString(3, dob);
+            stmtStudents.setString(4, program);
+            stmtStudents.setString(5, year);
+            stmtStudents.setString(6, contact);
+            stmtStudents.executeUpdate();
+
+            // Insert into student_dashboard table
+            String sqlDashboard = "INSERT INTO student_dashboard (student_id, name, program, year, contact) VALUES (?, ?, ?, ?, ?)";
+            stmtDashboard = conn.prepareStatement(sqlDashboard);
+            stmtDashboard.setString(1, studentId);
+            stmtDashboard.setString(2, studentName);
+            stmtDashboard.setString(3, program);
+            stmtDashboard.setString(4, year);
+            stmtDashboard.setString(5, contact);
+            stmtDashboard.executeUpdate();
+
+            conn.commit(); // Commit transaction
+            txtMessage.setText("Registration successful!");
+
         } catch (SQLException e) {
+            if (conn != null) {
+                try {
+                    conn.rollback(); // Rollback in case of error
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
             txtMessage.setText("Database error: " + e.getMessage());
+        } finally {
+            try {
+                if (stmtStudents != null) stmtStudents.close();
+                if (stmtDashboard != null) stmtDashboard.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 

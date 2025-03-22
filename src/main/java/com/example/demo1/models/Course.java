@@ -3,22 +3,24 @@ package com.example.demo1.models;
 public class Course {
     private int courseId;
     private String courseName;
-    private String duration;
+    private int creditHours;
+    private String department;
+    private String prerequisites;
+    private int maxEnrollment;
 
-    // Constructor
-    public Course(int courseId, String courseName, String duration) {
+    public Course(int courseId, String courseName, int creditHours, String department, String prerequisites, int maxEnrollment) {
         this.courseId = courseId;
         this.courseName = courseName;
-        this.duration = duration;
+        this.creditHours = creditHours;
+        this.department = department;
+        this.prerequisites = prerequisites;
+        this.maxEnrollment = maxEnrollment;
     }
 
-    // Getters and Setters
     public int getCourseId() { return courseId; }
-    public void setCourseId(int courseId) { this.courseId = courseId; }
-
     public String getCourseName() { return courseName; }
-    public void setCourseName(String courseName) { this.courseName = courseName; }
-
-    public String getDuration() { return duration; }
-    public void setDuration(String duration) { this.duration = duration; }
+    public int getCreditHours() { return creditHours; }
+    public String getDepartment() { return department; }
+    public String getPrerequisites() { return prerequisites; }
+    public int getMaxEnrollment() { return maxEnrollment; }
 }
