@@ -1,7 +1,8 @@
 # Course Registration System (CRS)
 
 ## Overview
-The **Course Registration System (CRS)** is a JavaFX-based application designed to automate the course registration process at educational institutions. It provides an intuitive interface for students to manage their academic schedules and enables faculty and administrative staff to maintain and track course and student data efficiently.
+The **Course Registration System (CRS)** is a JavaFX-based application designed to automate the course registration process at educational institutions.
+It provides an intuitive interface for students to manage their academic schedules and enables faculty and administrative staff to maintain and track course and student data efficiently.
 
 ## Features
 - **Course Management**: Maintain comprehensive details of all courses, including course ID, title, credit hours, department, prerequisites, and maximum enrollment capacity.
